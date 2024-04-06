@@ -8,13 +8,8 @@ metadata:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - genero.unicen.edu.ar
-    - www.genero.unicen.edu.ar
-    secretName: genero.unicen.edu.ar
   rules:
-  - host: www.genero.unicen.edu.ar
+  - host: example.com
     http:
       paths:
       - path: /

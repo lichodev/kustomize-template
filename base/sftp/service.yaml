@@ -4,8 +4,6 @@ metadata:
   name: sftp
 spec:
   type: LoadBalancer
-  selector:
-    app: sftp
   ports:
     - port: 22
       targetPort: 22

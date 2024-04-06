@@ -1,0 +1,7 @@
+resources:
+  - base/sftp/deployment.yaml
+  - base/sftp/service.yaml
+  - base/sftp/keys-pvc.yaml
+
+commonLabels:
+  app: sftp
