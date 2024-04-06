@@ -1,0 +1,17 @@
+{
+  "Global": {
+    "Chroot": {
+      "Directory": "%h",
+      "StartPath": "www"
+    },
+    "Directories": ["www"]
+  },
+  "Users": [
+    {
+      "Username": "example",
+      "Password": "${SFTP_PASSWORD}",
+      "UID": "33",
+      "GID": "33"
+    }
+  ]
+}
