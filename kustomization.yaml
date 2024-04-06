@@ -1,5 +1,5 @@
 resources:
 - base/httpd/
-- base/sftpd/
+- base/sftp/
 - base/www-pvc.yaml
     
