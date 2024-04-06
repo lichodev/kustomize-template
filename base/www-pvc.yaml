@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: www-data
+spec:
+  storageClassName: longhorn-2-backup
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi

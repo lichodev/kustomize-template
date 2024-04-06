@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sftp
+  labels:
+    app: sftp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sftp
+  template:
+    metadata:
+      labels:
+        app: sftp
+    spec:
+      containers:
+        - name: sftp
+          image: emberstack/sftp
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "100m"
+            limits:
+              memory: "1000Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 22
+          volumeMounts:
+            - name: sftp-json
+              mountPath: "/app/config/sftp.json"
+              subPath: sftp.json
+              readOnly: true
+            - name: data
+              mountPath: "/home/genero/www"
+            - name: keys
+              mountPath: "/etc/ssh"
+      volumes:
+        - name: sftp-json
+          secret:
+            secretName: sftp-json
+            items:
+              - key: sftp.json
+                path: sftp.json
+        - name: data
+          persistentVolumeClaim:
+            claimName: genero-web 
+        - name: keys
+          persistentVolumeClaim:
+            claimName: sftp-keys
